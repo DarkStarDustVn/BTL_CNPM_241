@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import reactLogo from './IMG/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
@@ -22,9 +22,12 @@ function App() {
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Edit <code>./frontend/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
