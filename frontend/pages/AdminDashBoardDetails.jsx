@@ -11,10 +11,10 @@ const AdminDashBoardDetails = () => {
     { icon: <FaProductHunt />, title: "Sản phẩm", value: "40", bgColor: "bg-red-400" },
     { icon: <FaComments />, title: "Bình luận", value: "5", bgColor: "bg-purple-400" },
     { icon: <FaStar />, title: "Đánh giá", value: "12", bgColor: "bg-green-400" },
-    { icon: <FaDollarSign />, title: "Doanh thu ngày", value: "365.000VND", bgColor: "bg-pink-400" },
-    { icon: <FaDollarSign />, title: "Doanh thu tuần", value: "1.047.000VND", bgColor: "bg-yellow-400" },
-    { icon: <FaDollarSign />, title: "Doanh thu tháng", value: "1.047.000VND", bgColor: "bg-yellow-400" },
-    { icon: <FaDollarSign />, title: "Doanh thu năm", value: "1.047.000VND", bgColor: "bg-teal-400" },
+    { icon: <FaDollarSign />, title: "Doanh thu ngày", value: "365.000 VND", bgColor: "bg-pink-400" },
+    { icon: <FaDollarSign />, title: "Doanh thu tuần", value: "1.047.000 VND", bgColor: "bg-yellow-400" },
+    { icon: <FaDollarSign />, title: "Doanh thu tháng", value: "1.047.000 VND", bgColor: "bg-yellow-400" },
+    { icon: <FaDollarSign />, title: "Doanh thu năm", value: "1.047.000 VND", bgColor: "bg-teal-400" },
   ];
 
   const lineData = {

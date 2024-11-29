@@ -1,4 +1,3 @@
-// components/Header.js
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faEnvelope, faUserCircle } from "@fortawesome/free-solid-svg-icons";

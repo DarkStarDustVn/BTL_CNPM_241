@@ -18,16 +18,18 @@ const Sidebar = () => {
       </div>
 
       <div className="p-4 bg-gray-700 text-center font-bold">
-        Main Features
+        Taskbar
       </div>
 
       <nav>
         <ul>
           <li className="p-4 hover:bg-gray-700 cursor-pointer">
             <FontAwesomeIcon icon={faClipboardList} className="pr-4" />
-            <Link to="/admin/dashboard">  Dashboard </Link>
+            <Link to="dashboard">  Dashboard </Link>
           </li>
-
+          <li className="p-4 hover:bg-gray-700 cursor-pointer">
+            <Link to="/account">Quản lý Tài Khoản</Link>
+          </li>
           <li className="p-4 hover:bg-gray-700 cursor-pointer"> 
                
 
@@ -41,7 +43,7 @@ const Sidebar = () => {
             <ul className="bg-gray">
               <li className="py-2 hover:bg-gray-600 cursor-pointer">
                 <FontAwesomeIcon icon={faBox} className="mr-2" />
-                <Link to="/admin/books">Sách</Link>
+                <Link to="products">Sách</Link>
               </li>
               <li className="py-2 hover:bg-gray-600 cursor-pointer">
                 <FontAwesomeIcon icon={faStar} className="mr-2" />
@@ -67,6 +69,7 @@ const Sidebar = () => {
           <li className="p-4 hover:bg-gray-700 cursor-pointer">Vận chuyển</li>
 
           <li className="p-4 hover:bg-gray-700 cursor-pointer">Khuyến mãi</li>
+
           
         </ul>
       </nav>
