@@ -99,6 +99,25 @@ const AdminDashBoardDetails = () => {
 
         {/* Top Products */}
         <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Top sản phẩm bán chạy</h2>
+          <table className="w-full text-sm text-left text-gray-500">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-200">
+              <tr>
+                <th className="px-4 py-2">ID</th>
+                <th className="px-4 py-2">Name</th>
+                <th className="px-4 py-2">Image</th>
+                <th className="px-4 py-2">Qty</th>
+                <th className="px-4 py-2">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Add rows here */}
+            </tbody>
+          </table>
+          <button className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg">Xem danh sách sản phẩm</button>
+        </div>
+
+        <div className="bg-white p-4 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Top sản phẩm bán trong tháng</h2>
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="text-xs text-gray-700 uppercase bg-gray-200">

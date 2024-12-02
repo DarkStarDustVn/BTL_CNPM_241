@@ -1,9 +1,10 @@
-// components/Sidebar.js
-import avatar from "../IMG/avatar.png";
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox, faStar, faFileAlt, faClipboardList, faWarehouse, faShippingFast, faTags } from "@fortawesome/free-solid-svg-icons";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { HiOutlineUser, HiOutlineViewGrid, HiOutlineBookOpen, HiOutlineStar, HiOutlineChat, 
+  HiOutlineClipboardList, HiOutlineCube, HiOutlineTruck, HiOutlineTag, HiOutlineDocumentText, HiKey } from "react-icons/hi"; // Heroicons outline
+
+import avatar from "../IMG/avatar.png";
+
 const Sidebar = () => {
   const [isSanPhamOpen, setSanPhamOpen] = useState(false);
   const [isDonHangOpen, setDonHangOpen] = useState(false);
@@ -11,10 +12,10 @@ const Sidebar = () => {
 
   return (
     <aside className="w-64 bg-gray-800 text-white">
-      <div className="p-4">
+      <div className="p-4 text-center">
         <img src={avatar} alt="Admin Avatar" className="rounded-full w-16 h-16 mx-auto" />
-        <h2 className="text-center text-lg mt-2">Admin</h2>
-        <p className="text-center text-sm text-green-400">Online</p>
+        <h2 className="text-lg mt-2">Admin</h2>
+        <p className="text-sm text-green-400">Online</p>
       </div>
 
       <div className="p-4 bg-gray-700 text-center font-bold">
@@ -23,54 +24,118 @@ const Sidebar = () => {
 
       <nav>
         <ul>
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">
-            <FontAwesomeIcon icon={faClipboardList} className="pr-4" />
-            <Link to="dashboard">  Dashboard </Link>
+          {/* Dashboard */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center">
+            <HiOutlineViewGrid className="text-xl mr-4" />
+            <Link to="/admin/dashboard" className="flex-grow">Dashboard</Link>
           </li>
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">
-            <Link to="/account">Quản lý Tài Khoản</Link>
+
+          {/* Quản lý tài khoản */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center">
+            <HiOutlineUser className="text-xl mr-4" />
+            <Link to="/admin/account" className="flex-grow">Quản lý Tài Khoản</Link>
           </li>
-          <li className="p-4 hover:bg-gray-700 cursor-pointer"> 
+
+          {/* Sản phẩm dropdown */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer">
+            <button 
+              className="flex items-center justify-between w-full" 
+              onClick={() => setSanPhamOpen(!isSanPhamOpen)}
+            >
+              <div className="flex items-center">
+                <HiOutlineCube className="text-xl mr-4" />
+                <span>Sản phẩm</span>
+              </div>
+              <span>{isSanPhamOpen ? "▲" : "▼"}</span>
+            </button>
+
+            {isSanPhamOpen && (
+              <ul className="bg-gray-700 pl-8 mt-2">
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiOutlineBookOpen className="text-xl mr-2" />
+                  <Link to="/admin/products" className="flex-grow">Sách</Link>
+                </li>
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiOutlineStar className="text-xl mr-2" />
+                  <span>Đánh giá</span>
+                </li>
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiOutlineChat className="text-xl mr-2" />
+                  <span>Bình luận</span>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Tin tức */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer">
+            <button 
+              className="flex items-center justify-between w-full" 
+              onClick={() => setTinTucOpen(!isTinTucOpen)}
+            >
+              <div className="flex items-center">
+                <HiOutlineDocumentText className="text-xl mr-4" />
+                <span>Tin tức</span>
+              </div>
+              <span>{isTinTucOpen ? "▲" : "▼"}</span>
+            </button>
+
+            {isTinTucOpen && (
+              <ul className="bg-gray-700 pl-8 mt-2">
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiKey className="text-xl mr-2" />
+                  <Link to="/admin/baiviet" className="flex-grow">Bài Viết</Link>
+                </li>
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiOutlineChat className="text-xl mr-2" />
+                  <span>Bình luận</span>
+                </li>
+              </ul>
+            )}
+          </li>
+
+          {/* Đơn hàng */}
+         <li className="p-4 hover:bg-gray-700 cursor-pointer">
+            <button 
+              className="flex items-center justify-between w-full" 
+              onClick={() => setDonHangOpen(!isDonHangOpen)}
+            >
+              <div className="flex items-center">
+                <HiOutlineDocumentText className="text-xl mr-4" />
+                <span>Đơn Hàng</span>
+              </div>
+              <span>{isDonHangOpen ? "▲" : "▼"}</span>
+            </button>
+
+            {isDonHangOpen && (
+              <ul className="bg-gray-700 pl-8 mt-2">
                
+                <li className="py-2 hover:bg-gray-600 cursor-pointer flex items-center">
+                  <HiOutlineStar className="text-xl mr-2" />
+                  <Link to="/admin/quanlydonhang" className="flex-grow">Quản Lý Đơn Hàng</Link>
+                </li>
+                
+              </ul>
+            )}
+          </li>
 
-          <div>
-          <button className="pb-2 flex justify-between items-center" onClick={() => setSanPhamOpen(!isSanPhamOpen)}>
-            <FontAwesomeIcon icon={faBox} className="pr-4" /> 
-            <span>Sản phẩm</span>
-            <span className="pl-16">{isSanPhamOpen ? "▲" : "▼"}</span>
-          </button>
-          {isSanPhamOpen && (
-            <ul className="bg-gray">
-              <li className="py-2 hover:bg-gray-600 cursor-pointer">
-                <FontAwesomeIcon icon={faBox} className="mr-2" />
-                <Link to="products">Sách</Link>
-              </li>
-              <li className="py-2 hover:bg-gray-600 cursor-pointer">
-                <FontAwesomeIcon icon={faStar} className="mr-2" />
-                Đánh giá
-              </li>
-              <li className="py-2 hover:bg-gray-600 cursor-pointer">
-                <FontAwesomeIcon icon={faStar} className="mr-2" />
-                Bình luận
-              </li>
-            </ul>
-          )}
-        </div>
+          {/* Kho */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center">
+            <HiOutlineCube className="text-xl mr-4" />
+            <Link to="/admin/kho" className="flex-grow">Kho</Link>
+          </li>
 
+          {/* Vận chuyển */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center">
+            <HiOutlineTruck className="text-xl mr-4" />
+            <Link to="/admin/vanchuyen" className="flex-grow">Vận Chuyển</Link>
+          </li>
 
-        </li>  
-
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">Tin tức</li>
-
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">Đơn hàng</li>
-
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">Kho</li>
-
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">Vận chuyển</li>
-
-          <li className="p-4 hover:bg-gray-700 cursor-pointer">Khuyến mãi</li>
-
-          
+          {/* Khuyến mãi */}
+          <li className="p-4 hover:bg-gray-700 cursor-pointer flex items-center">
+            <HiOutlineTag className="text-xl mr-4" />
+            <Link to="/admin/khuyenmai" className="flex-grow">Khuyến Mãi</Link>
+          </li>
         </ul>
       </nav>
     </aside>

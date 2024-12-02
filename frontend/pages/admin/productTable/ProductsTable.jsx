@@ -1,7 +1,17 @@
 import React from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import axios from "axios";
+
+
 
 const Product = () => {
+  const [productss, setProducts] = React.useState([]);
+  React.useEffect(() => {
+    
+    axios.get("http://localhost:5000/product/list").then((res) => {
+      setProducts(res.data);
+    });
+  }, []);
   const products = [
     { id: 47, name: "Tạp chí sắc đẹp", category: "Báo Tạp Chí", price: "38,000 vnd", salePrice: "34,200 vnd", hot: false, status: "Hiển thị", date: "2020-04-17 14:23:50", avatar: "image1.png" },
     { id: 46, name: "Tạp Chí Du Lịch", category: "Báo Tạp Chí", price: "20,000 vnd", salePrice: "20,000 vnd", hot: false, status: "Hiển thị", date: "2020-04-17 14:23:20", avatar: "image2.png" },
@@ -39,32 +49,26 @@ const Product = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
+            {productss.map((product, index) => (
               <tr key={product.id} className="border-b">
                 <td className="p-2 border">{index + 1}</td>
-                <td className="p-2 border">{product.id}</td>
-                <td className="p-2 border">{product.name}</td>
+                <td className="p-2 border">{product.bookID}</td>
+                <td className="p-2 border">{product.title}</td>
                 <td className="p-2 border">
                   <span className="bg-green-100 text-green-800 p-1 rounded">
                     {product.category}
                   </span>
                 </td>
                 <td className="p-2 border">
-                  <img src={product.avatar} alt={product.name} className="w-12 h-12 object-cover" />
+                  <img src={product.image} alt={product.title} className="w-12 h-12 object-cover" />
                 </td>
                 <td className="p-2 border">
-                  <span className="line-through text-gray-400 mr-2">{product.price}</span>
+                  <span className="text-gray-400 mr-2">{product.price}</span>
                   <span>{product.salePrice}</span>
-                </td>
-                <td className="p-2 border">
-                  <span className={`px-2 py-1 rounded ${product.hot ? "bg-red-500 text-white" : "bg-gray-200 text-gray-600"}`}>
-                    {product.hot ? "Hot" : "Không"}
-                  </span>
                 </td>
                 <td className="p-2 border">
                   <span className="bg-blue-100 text-blue-800 p-1 rounded">{product.status}</span>
                 </td>
-                <td className="p-2 border">{product.date}</td>
                 <td className="p-2 border flex space-x-2">
                   <button className="bg-blue-500 text-white p-2 rounded"><FaEdit /></button>
                   <button className="bg-red-500 text-white p-2 rounded"><FaTrash /></button>
