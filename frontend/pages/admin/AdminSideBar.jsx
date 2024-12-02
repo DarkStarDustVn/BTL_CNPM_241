@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { HiOutlineUser, HiOutlineViewGrid, HiOutlineBookOpen, HiOutlineStar, HiOutlineChat, 
   HiOutlineClipboardList, HiOutlineCube, HiOutlineTruck, HiOutlineTag, HiOutlineDocumentText, HiKey } from "react-icons/hi"; // Heroicons outline
 
-import avatar from "../IMG/avatar.png";
+import avatar from "../../IMG/avatar.png";
 
 const Sidebar = () => {
   const [isSanPhamOpen, setSanPhamOpen] = useState(false);

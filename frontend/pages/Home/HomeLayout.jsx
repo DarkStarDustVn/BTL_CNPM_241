@@ -3,8 +3,8 @@ import Header from "./Header";
 import Banner from "./Banner";
 import ProductList from "./ProductList";
 import Footer from "./Footer";
-import { Helmet } from "react-helmet-async";
 import {Outlet} from 'react-router-dom';
+
 const App = () => {
   return (
     <div>
